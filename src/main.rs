@@ -33,6 +33,8 @@ where P: AsRef<Path>{
             let new_path_end = line[7..].trim();
             let new_path = base_path.join(new_path_end);
             let new_contents = read_file(&new_path)?;
+            file_contents.push_str(&line);
+            file_contents.push('\n');
             file_contents.push_str(&new_contents);
         } else {
             file_contents.push_str(&line);
